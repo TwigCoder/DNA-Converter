@@ -35,7 +35,7 @@ class Window(QMainWindow):
         sys.exit()
 
     def min_app(self):
-        self.showMinimized() 
+        self.showMinimized()
         print("Passed: App successfully minimized.")
 
     def max_app(self):
@@ -51,7 +51,7 @@ class Window(QMainWindow):
         self.ui.rna_output.setText("")
         self.ui.protein_output.setText("")
         self.ui.error_console.hide()
-        
+
         DNA = self.ui.dna_taker.text()
 
         if DNA == "":
@@ -61,7 +61,7 @@ class Window(QMainWindow):
             return
 
         DNA = DNA_input(DNA)
-        
+
         if DNA == 'ERROR1':
             self.ui.error_console.setText('ERROR: Length of DNA must be multiple of 3 (barcodes)')
             self.ui.error_console.show()
@@ -73,7 +73,7 @@ class Window(QMainWindow):
             print("Passed: ERROR2 successfully displayed.")
 
         else:
-            
+
             self.ui.error_console.hide()
             RNA = DNA_to_RNA(DNA)
             proteinList = get_amino_acid(RNA)
